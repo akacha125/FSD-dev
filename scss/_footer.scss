@@ -1,0 +1,25 @@
+@use 'variables' as vars;
+
+footer {
+  text-align: center;
+  padding: vars.$padding;
+  background: vars.$primary-color;
+  color: white;
+  margin-top: vars.$margin;
+
+  .social-links {
+    margin-top: vars.$margin;
+
+    a {
+      text-decoration: none;
+      margin: 0 10px;
+      color: white;
+      font-weight: bold;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: vars.$secondary-color;
+      }
+    }
+  }
+}

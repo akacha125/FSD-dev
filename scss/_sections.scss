@@ -1,0 +1,40 @@
+@use 'variables' as vars;
+@use 'mixins' as mixins;
+
+/* Sections */
+main > section {
+  @include mixins.transition(transform, box-shadow);
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Skills Section */
+.skills-container {
+  padding: vars.$padding;
+  background: vars.$light-color;
+  border: 1px solid vars.$light-gray;
+  border-radius: 5px;
+
+  .skill {
+    margin-bottom: vars.$margin;
+
+    .progress-bar {
+      background: vars.$light-gray;
+      border-radius: 20px;
+      height: 20px;
+      width: 100%;
+    }
+
+    .progress {
+      background: vars.$primary-color;
+      color: white;
+      text-align: center;
+      border-radius: 20px;
+      line-height: 20px;
+      @include mixins.transition(width);
+    }
+  }
+}

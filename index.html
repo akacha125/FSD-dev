@@ -1,108 +1,241 @@
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <header>
-        <h1>My Portfolio</h1>
-      </header>
-      <nav role="navigation">
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-      
-      <main>
-        <section>
-          <article>
-            <h2>About Me</h2>
-            <p>I am a web developer passionate about coding.</p>
-          </article>
-        </section>
-        <form>
-            <div data-user-id="12345" data-role="admin">
-                User Information
-              </div>
-              
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <button type="submit">Submit</button>
-          </form>
-          <form>
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required placeholder="Enter your username">
-          
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-          
-            <label for="dob">Date of Birth:</label>
-            <input type="date" id="dob" name="dob">
-          
-            <label for="color">Favorite Color:</label>
-            <input type="color" id="color" name="color">
-          
-            <label for="age">Your Age:</label>
-            <input type="range" id="age" name="age" min="18" max="60">
-          
-            <button type="submit">Submit</button>
-          </form>
-          <video controls width="400">
-            <source src="example.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-          
-          <audio controls>
-            <source src="example.mp3" type="audio/mp3">
-            Your browser does not support the audio tag.
-          </audio>
-          <table>
-            <caption>Student Grades</caption>
-            <thead>
-              <tr>
-                <th>Name</th>
-                <th>Subject</th>
-                <th>Grade</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>John</td>
-                <td>Math</td>
-                <td>A</td>
-              </tr>
-              <tr>
-                <td>Jane</td>
-                <td>Science</td>
-                <td>B</td>
-              </tr>
-            </tbody>
-            <tfoot>
-              <tr>
-                <td colspan="2">Average</td>
-                <td>A</td>
-              </tr>
-            </tfoot>
-          </table>
-          <canvas id="myCanvas" width="400" height="200" style="border:1px solid #000;"></canvas>
 
-          <script>
-            const canvas = document.getElementById('myCanvas');
-            const ctx = canvas.getContext('2d');
-            ctx.fillStyle = 'blue';
-            ctx.fillRect(50, 50, 100, 100);
-          </script>
-                    
-          
-      </main>
-      <footer>
-        <p>&copy; 2024 My Portfolio</p>
-      </footer>
-      
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress"></div>
+
+  <!-- Loading Screen -->
+  <div class="loading-screen">
+    <div class="spinner"></div>
+  </div>
+
+  <!-- Header Section -->
+  <header class="header">
+    <section class="hero-banner text-center">
+      <h2>Welcome to My Portfolio</h2>
+      <p>Explore my work, skills, and projects. Let’s build something amazing together!</p>
+      <button id="theme-toggle" class="theme-button">Toggle Theme</button>
+      <a href="#about" class="cta-button">Learn More</a>
+    </section>
+  </header>
+
+  <!-- Navigation -->
+  <nav class="navbar" role="navigation">
+    <input type="checkbox" id="menu-toggle" />
+    <label for="menu-toggle" class="menu-icon">&#9776;</label>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#carousel">Projects</a></li>
+      <li><a href="#media">Media</a></li>
+      <li><a href="#form">Form</a></li>
+      <li><a href="#table">Table</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#canvas">Canvas</a></li>
+    </ul>
+  </nav>
+
+  <main class="main-container">
+    <!-- About Section -->
+    <section id="about" class="content-section">
+      <article class="text-center">
+        <h2>About Me</h2>
+        <p>I am a web developer passionate about coding and building amazing user experiences.</p>
+        <a href="resume.pdf" download="My_Resume.pdf" class="resume-button">Download Resume</a>
+      </article>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-container">
+      <h2 class="text-center">My Skills</h2>
+      <div class="skill">
+        <label for="html-skill">HTML</label>
+        <div class="progress-bar">
+          <div class="progress" id="html-skill" style="width: 90%;">90%</div>
+        </div>
+      </div>
+      <div class="skill">
+        <label for="css-skill">CSS</label>
+        <div class="progress-bar">
+          <div class="progress" id="css-skill" style="width: 85%;">85%</div>
+        </div>
+      </div>
+      <div class="skill">
+        <label for="js-skill">JavaScript</label>
+        <div class="progress-bar">
+          <div class="progress" id="js-skill" style="width: 80%;">80%</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="carousel" class="carousel-container">
+      <h2 class="text-center">My Projects</h2>
+      <div class="filter-buttons text-center">
+        <button data-filter="all" class="filter-btn">All</button>
+        <button data-filter="web" class="filter-btn">Web Development</button>
+        <button data-filter="uiux" class="filter-btn">UI/UX Design</button>
+      </div>
+      <div class="carousel">
+        <button class="carousel-btn prev" aria-label="Previous Slide">&lt;</button>
+        <div class="carousel-track-container">
+          <ul class="carousel-track">
+            <li class="carousel-slide current" data-category="web">
+              <img src="project1.jpg" alt="Web Development Project 1">
+            </li>
+            <li class="carousel-slide" data-category="uiux">
+              <img src="project2.jpg" alt="UI/UX Design Project 2">
+            </li>
+            <li class="carousel-slide" data-category="web">
+              <img src="project3.jpg" alt="Web Development Project 3">
+            </li>
+            <li class="carousel-slide" data-category="uiux">
+              <img src="project4.jpg" alt="UI/UX Design Project 4">
+            </li>
+          </ul>
+        </div>
+        <button class="carousel-btn next" aria-label="Next Slide">&gt;</button>
+      </div>
+    </section>
+
+    <!-- Media Section -->
+    <section id="media" class="media-container">
+      <h2 class="text-center">Media Section</h2>
+      <div class="search-bar">
+        <label for="media-search" class="sr-only">Search Media</label>
+        <input type="text" id="media-search" placeholder="Search media by title...">
+      </div>
+      <div class="media-item">
+        <video controls>
+          <source src="example.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p>Promotional Video</p>
+      </div>
+      <div class="media-item">
+        <audio controls>
+          <source src="example.mp3" type="audio/mp3">
+          Your browser does not support the audio tag.
+        </audio>
+        <p>Sample Audio</p>
+      </div>
+    </section>
+
+    <!-- Form Section -->
+    <section id="form" class="form-section">
+      <h2 class="text-center">Form Section</h2>
+      <form>
+        <fieldset>
+          <legend>Personal Information</legend>
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" required>
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+          <label for="dob">Date of Birth:</label>
+          <input type="date" id="dob" name="dob">
+        </fieldset>
+        <fieldset>
+          <legend>Other Information</legend>
+          <label for="age">Your Age:</label>
+          <input type="range" id="age" name="age" min="18" max="60">
+        </fieldset>
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+      </form>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-container">
+      <h2 class="text-center">Contact Me</h2>
+      <form id="contact-form">
+        <fieldset>
+          <legend>Send a Message</legend>
+          <label for="name">Your Name:</label>
+          <input type="text" id="name" name="from_name" required>
+          <label for="email">Your Email:</label>
+          <input type="email" id="email" name="from_email" required>
+          <label for="message">Message:</label>
+          <textarea id="message" name="message" required></textarea>
+          <button type="submit">Send Message</button>
+        </fieldset>
+      </form>
+      <div id="confirmation-modal" class="modal">
+        <div class="modal-content">
+          <span class="close-modal">&times;</span>
+          <p>Your message has been sent successfully! We’ll get back to you shortly.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials-container">
+      <h2 class="text-center">What People Say</h2>
+      <div class="testimonials-carousel">
+        <button class="carousel-btn prev" aria-label="Previous Testimonial">&lt;</button>
+        <div class="carousel-track-container">
+          <ul class="carousel-track">
+            <li class="carousel-slide current">
+              <p>"This developer has exceeded my expectations! Highly recommended."</p>
+              <h4>- Jane Doe</h4>
+            </li>
+            <li class="carousel-slide">
+              <p>"Outstanding work on my project. Very professional."</p>
+              <h4>- John Smith</h4>
+            </li>
+            <li class="carousel-slide">
+              <p>"Creative, responsive, and great to work with!"</p>
+              <h4>- Emily Brown</h4>
+            </li>
+          </ul>
+        </div>
+        <button class="carousel-btn next" aria-label="Next Testimonial">&gt;</button>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq-container">
+      <h2 class="text-center">Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <button class="faq-question">What services do you offer?</button>
+        <div class="faq-answer">
+          <p>I specialize in web development, UI/UX design, and API integrations.</p>
+        </div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">How can I contact you?</button>
+        <div class="faq-answer">
+          <p>You can reach me through my contact form or LinkedIn profile.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Canvas Section -->
+    <section id="canvas" class="canvas-container">
+      <h2 class="text-center">Canvas Art</h2>
+      <canvas id="myCanvas" width="400" height="200"></canvas>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 My Portfolio</p>
+    <div class="social-links">
+      <a href="https://github.com" target="_blank">GitHub</a>
+      <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+      <a href="#top" class="back-to-top">Back to Top</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
+
 </html>

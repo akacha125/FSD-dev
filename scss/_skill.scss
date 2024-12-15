@@ -1,0 +1,29 @@
+@use 'variables' as vars;
+
+.skills-container {
+  padding: vars.$padding;
+  background: vars.$light-color;
+  border: 1px solid vars.$light-gray;
+  border-radius: 5px;
+
+  .skill {
+    margin-bottom: vars.$margin;
+
+    .progress-bar {
+      background: vars.$light-gray;
+      border-radius: 20px;
+      overflow: hidden;
+      height: 20px;
+      width: 100%;
+
+      .progress {
+        background: vars.$primary-color;
+        color: white;
+        text-align: center;
+        border-radius: 20px;
+        line-height: 20px;
+        transition: width 1.5s ease-in-out;
+      }
+    }
+  }
+}

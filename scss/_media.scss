@@ -1,0 +1,27 @@
+@use 'variables' as vars;
+
+.media-container {
+  padding: vars.$padding;
+  background: vars.$light-color;
+  border: 1px solid vars.$light-gray;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: vars.$margin;
+
+  .media-item {
+    text-align: center;
+
+    video,
+    audio {
+      width: 100%;
+      max-width: 400px;
+    }
+  }
+}
+
+@media (max-width: vars.$breakpoint-small) {
+  .media-container {
+    grid-template-columns: 1fr;
+  }
+}

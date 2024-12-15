@@ -1,0 +1,33 @@
+@use 'variables' as vars;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: vars.$font-primary;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  line-height: vars.$line-height;
+  color: vars.$text-color;
+  padding: vars.$padding;
+}
+
+a {
+  color: vars.$link-color;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: vars.$link-hover-color;
+  }
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: vars.$focus-outline;
+}

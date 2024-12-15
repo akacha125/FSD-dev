@@ -1,0 +1,51 @@
+@use 'variables' as vars;
+
+nav {
+  position: relative;
+  background: vars.$light-gray;
+  padding: vars.$padding;
+
+  .nav-links {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+
+    li {
+      margin: 0 15px;
+
+      a {
+        text-decoration: none;
+        color: vars.$dark-gray;
+        font-weight: bold;
+
+        &:hover {
+          color: vars.$primary-color;
+        }
+      }
+    }
+  }
+
+  .menu-icon {
+    display: none;
+    font-size: 24px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+  }
+
+  @media (max-width: vars.$breakpoint-small) {
+    .menu-icon {
+      display: block;
+    }
+
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    input[type="checkbox"]:checked + .menu-icon + .nav-links {
+      display: flex;
+    }
+  }
+}
